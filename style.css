@@ -41,6 +41,26 @@ a:hover {
 .navbar a:hover {
   color: #f39c12;
 }
+.navbar .nav-right {
+  display: flex;
+  align-items: center;
+}
+.theme-toggle {
+  margin-left: 30px;
+  background: #2c3e50;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s, color 0.3s;
+}
+body.light-mode .theme-toggle {
+  background: #f8f9fa;
+  color: #2a3f5f;
+  border: 1px solid #2a3f5f;
+}
 
 /* Hero Section */
 .hero {
@@ -104,7 +124,6 @@ h2 {
   text-align: center;
   display: block;
 }
-
 
 /* Skills Grid */
 .skills-grid {
@@ -180,12 +199,20 @@ ul li {
 
 /* Footer */
 footer {
-  background: #827e81;
-  color: white;
+  background: #181818;
+  color: #e6eaec;
   text-align: center;
   padding: 25px 10px;
   margin-top: 60px;
   font-size: 14px;
+}
+footer a {
+  color: #ffd700;
+  font-weight: bold;
+  text-decoration: underline;
+}
+footer a:hover {
+  color: #1abc9c;
 }
 
 /* Animations */
@@ -274,3 +301,69 @@ footer {
   }
 }
 
+/* --- Light Mode Overrides --- */
+body.light-mode {
+  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  color: #222;
+}
+body.light-mode .navbar {
+  background: #f8f9fa;
+  color: #222;
+}
+body.light-mode .navbar a {
+  color: #222;
+}
+body.light-mode .navbar a:hover {
+  color: #007bff;
+}
+body.light-mode .hero {
+  background: linear-gradient(120deg, #e0f7fa, #b2ebf2);
+  color: #222;
+}
+body.light-mode .hero-img {
+  border: 4px solid #222;
+}
+body.light-mode .skills-grid span {
+  background: #f0f4f8;
+  color: #222;
+}
+body.light-mode .skills-grid span:hover {
+  background: #007bff;
+  color: #fff;
+}
+body.light-mode .section {
+  background: #f8f9fa;
+  color: #222;
+}
+body.light-mode .project-card {
+  background: #fff;
+  color: #222;
+}
+body.light-mode .project-card h3 {
+  color: #007bff;
+}
+body.light-mode .project-card a {
+  color: #007bff;
+}
+body.light-mode .project-card a:hover {
+  color: #17a2b8;
+}
+body.light-mode ul li {
+  color: #222;
+}
+body.light-mode #contact a {
+  color: #007bff;
+}
+body.light-mode #contact a:hover {
+  color: #17a2b8;
+}
+body.light-mode footer {
+  background: #e0e0e0;
+  color: #222;
+}
+body.light-mode footer a {
+  color: #007bff;
+}
+body.light-mode footer a:hover {
+  color: #17a2b8;
+}
