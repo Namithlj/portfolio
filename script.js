@@ -24,10 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('theme', 'dark');
     }
   }
+
   // On page load, set theme from localStorage
   if (localStorage.getItem('theme') === 'light') {
     document.body.classList.add('light-mode');
   }
+
   // Toggle button event
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {

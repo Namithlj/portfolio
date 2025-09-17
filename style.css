@@ -7,7 +7,7 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   line-height: 1.6;
-  background: linear-gradient(to right, #472d2d, #e0f7fa); /* subtle gradient */
+  background: linear-gradient(to right, #1c1f2a, #2e2e4f); /* dark mode background */
   color: #e6eaec;
   scroll-behavior: smooth;
 }
@@ -66,24 +66,56 @@ body.light-mode .theme-toggle {
 .hero {
   text-align: center;
   padding: 60px 20px;
-  background: linear-gradient(120deg, #747576, #6dd5ed);
+  background: linear-gradient(120deg, #2c3e50, #4b4376); /* dark mode gradient */
   color: white;
 }
 
-.hero-img {
-  width: 150px;
+/* 🔹 Hero Image Slider (Image Switch Only) */
+.hero-slider {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto; /* center horizontally */
   border-radius: 50%;
-  border: 4px solid white;
-  margin-bottom: 15px;
-  transition: transform 0.4s ease;
+  overflow: hidden;
+  border: 6px solid #ffffff; /* ✅ single white border */
+  box-sizing: border-box;
 }
-.hero-img:hover {
-  transform: scale(1.1);
+
+.hero-slider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0;
+  animation: fadeSlide 9s infinite;
 }
+
+/* each image fades in for 3s */
+.hero-slider img:nth-child(1) { animation-delay: 0s; }
+.hero-slider img:nth-child(2) { animation-delay: 3s; }
+.hero-slider img:nth-child(3) { animation-delay: 6s; }
+
+@keyframes fadeSlide {
+  0%, 33% { opacity: 1; }
+  33.01%, 100% { opacity: 0; }
+}
+
+
+
+
+
+
+
+
+
 .hero h1 {
   font-size: 36px;
 }
-.hero h1 span a{
+.hero h1 span a {
   color: #b9e5a9;
 }
 .hero p {
@@ -109,12 +141,11 @@ body.light-mode .theme-toggle {
   padding: 60px 20px;
   max-width: 1000px;
   margin: 50px auto;
-  background: #ffffff; /* pure white background */
+  background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  color: #2a3f5f; /* stronger text color for readability */
+  color: #2a3f5f;
 }
-
 h2 {
   font-size: 28px;
   margin-bottom: 20px;
@@ -199,7 +230,7 @@ ul li {
 
 /* Footer */
 footer {
-  background: #181818;
+  background: #151520;
   color: #e6eaec;
   text-align: center;
   padding: 25px 10px;
@@ -229,16 +260,10 @@ footer a:hover {
   animation: fadeInUp 1s ease forwards;
 }
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Slide title in */
@@ -253,10 +278,7 @@ footer a:hover {
   transform: translateX(-40px);
 }
 @keyframes slideIn {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  to { opacity: 1; transform: translateX(0); }
 }
 .nav-left {
   display: flex;
@@ -265,12 +287,10 @@ footer a:hover {
   overflow: hidden;
   position: relative;
 }
-
 .brand {
   font-weight: bold;
   font-size: 22px;
 }
-
 .email-slide {
   white-space: nowrap;
   animation: slide-left-right 8s linear infinite;
@@ -278,32 +298,17 @@ footer a:hover {
   color: #f1c40f;
   position: relative;
 }
-
-/* Keyframes for left-to-right then right-to-left loop */
 @keyframes slide-left-right {
-  0% {
-    transform: translateX(-10%);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  50% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%);
-    opacity: 1;
-  }
+  0% { transform: translateX(-10%); opacity: 0; }
+  10% { opacity: 1; }
+  50% { transform: translateX(0%); opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 1; }
 }
 
 /* --- Light Mode Overrides --- */
 body.light-mode {
-  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  background: linear-gradient(to right, #fff3e0, #e0f7fa);
   color: #222;
 }
 body.light-mode .navbar {
@@ -317,11 +322,11 @@ body.light-mode .navbar a:hover {
   color: #007bff;
 }
 body.light-mode .hero {
-  background: linear-gradient(120deg, #e0f7fa, #b2ebf2);
+  background: linear-gradient(120deg, #d9a7c7, #fffcdc);
   color: #222;
 }
-body.light-mode .hero-img {
-  border: 4px solid #222;
+body.light-mode .hero-slider img {
+  border: 5px solid #222; /* match dark mode */
 }
 body.light-mode .skills-grid span {
   background: #f0f4f8;
@@ -358,7 +363,7 @@ body.light-mode #contact a:hover {
   color: #17a2b8;
 }
 body.light-mode footer {
-  background: #e0e0e0;
+  background: #f4f4f4;
   color: #222;
 }
 body.light-mode footer a {
